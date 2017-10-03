@@ -52,7 +52,7 @@ include 'sendmail.php';
                                     <a class="btn btn-lg btn-orange btn-rounded mt-20"
                                        href="https://whois.sk-nic.sk/?query=<?php echo $domainName; ?>" target="_blank">Info
                                         o doméne</a>
-                                    <a class="btn btn-lg btn-green btn-rounded ml-sm-20 mt-20" href="#">Štatistiky</a>
+                                    <a class="btn btn-lg btn-green btn-rounded ml-sm-20 mt-20" href="data/GA-WebSiteData.pdf">Štatistiky</a>
                                 </div>
                             </div>
                             <div class="col-md-5 ptb-20">
