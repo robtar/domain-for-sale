@@ -97,7 +97,7 @@ select, button, [role="button"], input[type="button"], input[type="submit"], inp
 
 /* Remove chrome yellow autofill */
 input:-webkit-autofill {
-  -webkit-box-shadow: 0 0 0px 1000px #f7f7f7 inset;
+  -webkit-box-shadow: 0 0 0 1000px #f7f7f7 inset;
 }
 
 /* Rurn off number spinners */
@@ -2420,8 +2420,7 @@ label {
 
 /* |–––––––––––[ Background Styles ]–––––––––––| */
 .bg-cover, *[data-bg-img] {
-  background-position: center;
-  background-repeat: no-repeat;
+  background: no-repeat center;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -3256,12 +3255,12 @@ textarea.form-control {
 
 /* ––––––––––––––––––––––––––––––––––––––––––––– */
 .row.row-rl-0 {
-  margin-right: 0px;
-  margin-left: 0px;
+  margin-right: 0;
+  margin-left: 0;
 }
 .row.row-rl-0 > [class*="col-xs"], .row.row-rl-0 > [class*="col-sm"], .row.row-rl-0 > [class*="col-md"], .row.row-rl-0 > [class*="col-lg"] {
-  padding-right: 0px;
-  padding-left: 0px;
+  padding-right: 0;
+  padding-left: 0;
 }
 .row.row-rl-5 {
   margin-right: -5px;
@@ -3296,12 +3295,12 @@ textarea.form-control {
   padding-left: 20px;
 }
 .row.row-tb-0 {
-  margin-top: 0px;
-  margin-bottom: 0px;
+  margin-top: 0;
+  margin-bottom: 0;
 }
 .row.row-tb-0 > [class*="col-xs"], .row.row-tb-0 > [class*="col-sm"], .row.row-tb-0 > [class*="col-md"], .row.row-tb-0 > [class*="col-lg"] {
-  padding-top: 0px;
-  padding-bottom: 0px;
+  padding-top: 0;
+  padding-bottom: 0;
 }
 .row.row-tb-5 {
   margin-top: -5px;
@@ -3506,23 +3505,7 @@ textarea.form-control {
 .section {
   position: relative;
   background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-}
-.list-styled li {
-  display: block;
-  position: relative;
-  padding: 2px 0 2px 18px;
-  margin-left: 10px;
-}
-.list-styled li:before {
-  content: "";
-  position: absolute;
-  left: 0px;
-  top: 9px;
-  width: 100%;
-  height: 100%;
-  background: url(../images/check.png) 0px 0px no-repeat scroll;
+  background: no-repeat center;
 }
 .form-response {
   font-size: 14px;
