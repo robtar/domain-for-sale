@@ -1,0 +1,2 @@
+<?php
+$messages['domain'] = 'domain';

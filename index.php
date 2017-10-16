@@ -1,6 +1,7 @@
 <?php
 require 'settings.php';
 require 'sendmail.php';
+require 'locale/' . $siteLangCode . '.php';
 ?>
 
 <html lang="<?php echo $siteLangCode; ?>">
@@ -20,7 +21,7 @@ require 'sendmail.php';
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title><?php echo $domainName; ?> - Doména na predaj</title>
-    <meta name="description" content="Doména <?php echo $domainName; ?> je na predaj!">
+    <meta name="description" content="<?php echo ucfirst($messages['domain']) . " " . $domainName; ?> je na predaj!">
     <meta name="keywords" content="<?php echo $domainName; ?>, doména, domain, predaj, sell">
     <meta name="author" content="Ing. Róbert Taraba">
     <link rel="shortcut icon" href="assets/images/favicon.ico"/>
