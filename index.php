@@ -1,6 +1,6 @@
 <?php
-include 'settings.php';
-include 'sendmail.php';
+require 'settings.php';
+require 'sendmail.php';
 ?>
 
 <html lang="<?php echo $siteLangCode; ?>">
