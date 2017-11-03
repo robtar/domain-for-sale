@@ -20,9 +20,9 @@ require 'locale/' . initLanguage() . '.php';
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title><?php echo $domainName; ?> - Doména na predaj</title>
-    <meta name="description" content="<?php echo ucfirst($messages['domain']) . " " . $domainName; ?> je na predaj!">
-    <meta name="keywords" content="<?php echo $domainName; ?>, doména, domain, predaj, sell">
+    <title><?php echo $domainName . " - " . $messages["domain"] . " " . $messages["for_sale"]; ?></title>
+    <meta name="description" content="<?php echo ucfirst($messages['domain']) . " " . $domainName . " " . $messages["for_sale"] ?>!">
+    <meta name="keywords" content="<?php echo $domainName; ?>, doména, domain, predaj, sell, šablóna, template">
     <meta name="author" content="Ing. Róbert Taraba">
     <link rel="shortcut icon" href="assets/images/favicon.ico"/>
     <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:600,600i,700" rel="stylesheet">
@@ -42,33 +42,27 @@ require 'locale/' . initLanguage() . '.php';
                     <div class="pos-tb-center">
                         <div class="row ptb-30">
                             <div class="col-md-7 t-xs-center t-md-left ptb-30">
-                                <h1 class="h1 t-uppercase mb-30"><?php echo $domainName; ?> je na predaj!</h1>
-                                <h3 class="font-24 t-uppercase mb-30">Doména je základ úspešného podnikania na
-                                    internete.</h3>
-                                <h5>Úspešný internetový projekt vyžaduje vhodnú ľahko zapamätateľnú doménu. Pri
-                                    vyslovení názvu domény by malo návštevníka hneď napadnúť, aký obsah ponúka. Pre
-                                    slovenský projekt je potrebná doména s koncovkou .sk. Táto doména môže byť
-                                    vaša!</h5>
+                                <h1 class="h1 t-uppercase mb-30"><?php echo $domainName . " ". $messages["for_sale"]?>!</h1>
+                                <h3 class="font-24 t-uppercase mb-30"><?php echo $messages['title_h3'] ?></h3>
+                                <h5><?php echo $messages['title_h5'] ?></h5>
                                 <div class="pt-30">
                                     <a class="btn btn-lg btn-orange btn-rounded mt-20"
-                                       href="https://whois.sk-nic.sk/?query=<?php echo $domainName; ?>" target="_blank">Info
-                                        o doméne</a>
-                                    <a class="btn btn-lg btn-green btn-rounded ml-sm-20 mt-20" href="data/GA-WebSiteData.pdf">Štatistiky</a>
+                                       href="https://whois.sk-nic.sk/?query=<?php echo $domainName; ?>" target="_blank"><?php echo $messages['domain_info'] ?></a>
+                                    <a class="btn btn-lg btn-green btn-rounded ml-sm-20 mt-20" href="data/GA-WebSiteData.pdf"><?php echo $messages['statistics'] ?></a>
                                 </div>
                             </div>
                             <div class="col-md-5 ptb-20">
                                 <div class="hero-form float-center float-md-right t-center t-md-left">
                                     <div class="hero-form-header">
-                                        <h4 class="t-uppercase mb-10">Vaša ponuka</h4>
-                                        <p class="mb-0"><?php echo $domainName; ?> je ľahko zapamätateľná a zrozumiteľná
-                                            doména pre podnikanie v oblasti IT</p>
+                                        <h4 class="t-uppercase mb-10"><?php echo $messages['your_offer'] ?></h4>
+                                        <p class="mb-0"><?php echo $domainName . " " . $messages['title_offer'] ?></p>
                                     </div>
                                     <div class="hero-form-wrapper">
                                         <form method="post">
                                             <div class="mb-15">
                                                 <div class="field">
                                                     <input type="text" class="form-control input-lg"
-                                                           placeholder="Vaša max. ponuka" name="offer"
+                                                           placeholder="<?php echo $messages['max_offer'] ?>" name="offer"
                                                            autocomplete="off" required>
                                                     <i class="fa fa-eur font-18"></i>
                                                 </div>
@@ -76,14 +70,14 @@ require 'locale/' . initLanguage() . '.php';
                                             <div class="mb-15">
                                                 <div class="field">
                                                     <input type="text" class="form-control input-lg"
-                                                           placeholder="Váše meno" name="name" required>
+                                                           placeholder="<?php echo $messages['your_name'] ?>" name="name" required>
                                                     <i class="fa fa-user font-15"></i>
                                                 </div>
                                             </div>
                                             <div class="mb-15">
                                                 <div class="field">
                                                     <input type="text" class="form-control input-lg"
-                                                           placeholder="Váš Email" name="email" required>
+                                                           placeholder="<?php echo $messages['your_email'] ?>" name="email" required>
                                                     <i class="fa fa-envelope font-15"></i>
                                                 </div>
                                             </div>
@@ -92,7 +86,7 @@ require 'locale/' . initLanguage() . '.php';
                                                      data-sitekey="<?php echo $recaptchaSiteKey; ?>"></div>
                                             </div>
                                             <div class="mb-15">
-                                                <button type="submit" class="btn btn-lg btn-blue btn-block">Odoslať
+                                                <button type="submit" class="btn btn-lg btn-blue btn-block"><?php echo $messages['send'] ?>
                                                 </button>
                                             </div>
                                             <div>
