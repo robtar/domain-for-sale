@@ -3645,7 +3645,7 @@ textarea.form-control {
   padding: 25px 0;
   text-align: center;
 }
-.oznamy {
+.oznamy, .partner {
   background: #081228;
   color: #081228;
 }
