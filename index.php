@@ -1,10 +1,10 @@
 <?php
 require 'settings.php';
-require 'sendmail.php';
-require 'locale/' . $siteLangCode . '.php';
+require 'functions.php';
+require 'locale/' . initLanguage() . '.php';
 ?>
 
-<html lang="<?php echo $siteLangCode; ?>">
+<html lang="<?php echo initLanguage(); ?>">
 
 <head>
     <script async src="https://www.googletagmanager.com/gtag/js?id=<?php echo $googleAnalyticsKey; ?>"></script>

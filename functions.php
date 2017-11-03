@@ -17,3 +17,14 @@ function sendMail($secretKey, $defaultEmail, $domainName)
         }
     }
 }
+
+function initLanguage()
+{
+    if (isset($_SERVER['HTTP_ACCEPT_LANGUAGE'])) {
+        $clientLang = substr($_SERVER['HTTP_ACCEPT_LANGUAGE'], 0, 2);
+        if (file_exists("locale/" . $clientLang . ".php")) {
+            return $clientLang;
+        }
+    }
+    return $GLOBALS["siteLangCode"];
+}
