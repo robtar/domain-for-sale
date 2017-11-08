@@ -90,7 +90,7 @@ require 'locale/' . initLanguage() . '.php';
                                                 </button>
                                             </div>
                                             <div>
-                                                <?php sendMail($recaptchaSecretKey, $defaultEmail, $domainName) ?>
+                                                <?php sendMail() ?>
                                             </div>
                                         </form>
                                     </div>
