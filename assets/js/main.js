@@ -135,7 +135,7 @@ form.addEventListener('submit', async e => {
       headers: {
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify({ name, email, phone: form.phone.value.trim(), budget: form.budget.value, message, 'cf-turnstile-response': turnstileResponse }),
+      body: JSON.stringify({ name, email, phone: form.phone.value.trim(), budget: form.budget.value, message, 'turnstileToken': turnstileResponse }),
     });
 
     if (!resp.ok) {
