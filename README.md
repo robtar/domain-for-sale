@@ -1,6 +1,6 @@
-# procomputer.sk — Domain for Sale
+# Domain for Sale
 
-Official static landing page for the `procomputer.sk` domain sale.
+Static landing page for the domain sale template.
 
 ## Overview
 

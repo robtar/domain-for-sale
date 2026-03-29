@@ -2,7 +2,7 @@
 let currentLang;
 
 function detectLang() {
-  const saved = localStorage.getItem('procomputer_lang');
+  const saved = localStorage.getItem('domain_lang');
   if (saved && translations[saved]) return saved;
   // navigator.languages is an ordered array of all preferred languages
   for (const l of (navigator.languages || [navigator.language])) {
@@ -38,8 +38,50 @@ function applyLang(lang) {
   currentLang = lang;
 }
 
+function isValidDomain(domain) {
+  // Simple validation for DNS labels + TLD. Allows subdomains as well.
+  const domainRegex = /^(?=.{1,253}$)(?!-)([a-z0-9]+(-[a-z0-9]+)*\.)+[a-z]{2,63}$/i;
+  return domainRegex.test(domain);
+}
+
+function getCurrentDomain() {
+  const host = window.location.hostname.trim().toLowerCase();
+  if (!host || host === 'localhost' || host === '127.0.0.1' || host === '::1') {
+    return 'procomputer.sk';
+  }
+  return isValidDomain(host) ? host : 'procomputer.sk';
+}
+
+function applyCurrentDomain() {
+  const domain = getCurrentDomain();
+
+  document.querySelectorAll('.domain-dyn').forEach(el => {
+    el.textContent = domain;
+  });
+
+  const domainJson = document.getElementById('domainJson');
+  if (domainJson) domainJson.textContent = `"${domain}"`;
+
+  const tDomain = document.getElementById('tDomain');
+  if (tDomain) {
+    const parts = domain.split('.');
+    if (parts.length >= 2) {
+      const tld = parts.pop();
+      const name = parts.join('.');
+      tDomain.innerHTML = `${name}<span style="color:var(--muted)">.${tld}</span>`;
+    } else {
+      tDomain.textContent = domain;
+    }
+  }
+
+  // Dynamické nastavenie title
+  document.title = `${domain} — DOMAIN FOR SALE`;
+}
+
+applyCurrentDomain();
+
 function setLang(lang) {
-  localStorage.setItem('procomputer_lang', lang);
+  localStorage.setItem('domain_lang', lang);
   applyLang(lang);
 }
 

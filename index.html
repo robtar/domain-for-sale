@@ -16,7 +16,7 @@
     <div class="tb-dot y"></div>
     <div class="tb-dot g"></div>
   </div>
-  <div class="tb-title">procomputer.sk — domain@marketplace ~ bash</div>
+  <div class="tb-title"><span class="domain-dyn">procomputer.sk</span> — domain@marketplace ~ bash</div>
   <div class="tb-right">
     <div class="tb-status">AVAILABLE</div>
     <div class="lang-switcher">
@@ -35,16 +35,16 @@
       <span>domain-info.sh</span>
     </div>
     <div class="terminal-body">
-      <div class="t-line"><span class="t-prompt">➜ ~</span> <span class="t-cmd">whois procomputer.sk --format=json</span></div>
+      <div class="t-line"><span class="t-prompt">➜ ~</span> <span class="t-cmd">whois <span class="domain-dyn">procomputer.sk</span> --format=json</span></div>
       <div class="t-line t-comment" data-i18n="terminal_lookup"></div>
       <br/>
-      <div class="t-line"><span class="t-key">"domain"</span>: <span class="t-str">"procomputer.sk"</span>,</div>
+      <div class="t-line"><span class="t-key">"domain"</span>: <span class="t-str" id="domainJson">"procomputer.sk"</span>,</div>
       <div class="t-line"><span class="t-key">"status"</span>: <span class="t-val">"FOR_SALE"</span>,</div>
       <div class="t-line"><span class="t-key">"price"</span>: <span class="t-val">5900</span>, <span class="t-comment">// EUR, negotiable</span></div>
       <div class="t-line"><span class="t-key">"transfer"</span>: <span class="t-str">"48h"</span>,</div>
       <div class="t-line"><span class="t-key">"escrow"</span>: <span class="t-val">true</span>,</div>
       <br/>
-      <div class="t-domain">procomputer<span style="color:var(--muted)">.sk</span></div>
+      <div class="t-domain" id="tDomain">procomputer<span style="color:var(--muted)">.sk</span></div>
       <div style="margin-bottom:16px;">
         <span class="t-tag">premium</span>
         <span class="t-tag">computers</span>
@@ -176,8 +176,8 @@
   </div>
 
   <footer>
-    <span>// procomputer.sk © 2025 — <span data-i18n="footer_rights"></span></span>
-    <span>powered by <a href="#">domain-sale.sh</a> v1.0.0</span>
+    <span>// <span class="domain-dyn">procomputer.sk</span> © 2026 — <span data-i18n="footer_rights"></span></span>
+    <span>powered by <a href="https://github.com/robtar/domain-for-sale">RobTar</a></span>
   </footer>
 
 </div>
