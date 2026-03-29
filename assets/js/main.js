@@ -129,7 +129,7 @@ form.addEventListener('submit', async e => {
   btn.disabled = true;
 
   try {
-    const resp = await fetch('/api/send-email', {
+    const resp = await fetch('/send-email', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
