@@ -1,7 +1,26 @@
 export async function onRequestPost({ request, env }) {
   try {
     const data = await request.json();
-    const { name, email, phone = '', budget = '', message } = data;
+    const { name, email, phone = '', budget = '', message, turnstileToken } = data;
+
+    if (!turnstileToken) {
+      return new Response(JSON.stringify({ error: 'Chýba bezpečnostný token.' }), { status: 400 });
+    }
+
+    const turnstileVerify = await fetch('https://challenges.cloudflare.com/turnstile/v0/siteverify', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        secret: env.TURNSTILE_SECRET_KEY,
+        response: turnstileToken,
+      }),
+    });
+
+    const turnstileResult = await turnstileVerify.json();
+
+    if (!turnstileResult.success) {
+      return new Response(JSON.stringify({ error: 'Zlyhalo overenie proti botom.' }), { status: 403 });
+    }
 
     if (!name || !email || !message) {
       return new Response(JSON.stringify({ error: 'missing_fields' }), { status: 400 });

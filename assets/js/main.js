@@ -129,12 +129,13 @@ form.addEventListener('submit', async e => {
   btn.disabled = true;
 
   try {
+    const turnstileResponse = document.querySelector('[name="cf-turnstile-response"]').value;
     const resp = await fetch('/send-email', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify({ name, email, phone: form.phone.value.trim(), budget: form.budget.value, message }),
+      body: JSON.stringify({ name, email, phone: form.phone.value.trim(), budget: form.budget.value, message, 'cf-turnstile-response': turnstileResponse }),
     });
 
     if (!resp.ok) {
