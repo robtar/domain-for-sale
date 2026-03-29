@@ -10,9 +10,26 @@ export async function onRequestPost({ request, env }) {
     const body = {
       from: 'Domain For Sale <hello@' + (env.SITE_HOSTNAME || 'procomputer.sk') + '>',
       to: ['info@procomputer.sk'],
-      subject: `Nová otázka o doménu ${env.SITE_HOSTNAME || 'procomputer.sk'}`,
-      text: `Mená: ${name}\nEmail: ${email}\nTel: ${phone}\nPonuka: ${budget}\nSpráva:\n${message}`,
-      html: `<p><strong>Mená:</strong> ${name}</p><p><strong>Email:</strong> ${email}</p><p><strong>Tel.:</strong> ${phone}</p><p><strong>Ponuka:</strong> ${budget}</p><p><strong>Správa:</strong><br/>${message.replace(/\n/g, '<br/>')}</p>`,
+      reply_to: email,
+      subject: `[Dopyt] ${env.SITE_HOSTNAME || 'procomputer.sk'}`,
+      text: `Dobrý deň,\n\nbol odoslaný nový dopyt cez formulár na webe.\n\nMená: ${name}\nEmail: ${email}\nTel: ${phone}\nPonuka: ${budget}\n\nSpráva:\n${message}\n\n---\nTento e-mail bol vygenerovaný automaticky.`,
+      html: `
+        <div style="font-family: Arial, sans-serif; color: #333;">
+        <h2 style="color: #0056b3;">Nový dopyt z webu</h2>
+        <p>Cez kontaktný formulár na webe prišla nová správa:</p>
+        <hr style="border: 0; border-top: 1px solid #eee;" />
+        <p><strong>Meno:</strong> ${name}</p>
+        <p><strong>E-mail:</strong> ${email}</p>
+        <p><strong>Telefón:</strong> ${phone}</p>
+        <p><strong>Ponuka:</strong> ${budget}</p>
+        <p><strong>Správa:</strong></p>
+        <div style="background: #f9f9f9; padding: 15px; border-radius: 5px;">
+            ${message.replace(/\n/g, '<br/>')}
+        </div>
+        <hr style="border: 0; border-top: 1px solid #eee;" />
+        <small style="color: #777;">Tento e-mail bol odoslaný automaticky z tvojej aplikácie na Cloudflare.</small>
+        </div>
+    `
     };
 
     const resendApiKey = env.RESEND_API_KEY;
