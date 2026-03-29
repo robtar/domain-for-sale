@@ -9,7 +9,7 @@ export async function onRequestPost({ request, env }) {
 
     const body = {
       from: 'Domain For Sale <hello@' + (env.SITE_HOSTNAME || 'procomputer.sk') + '>',
-      to: ['owner@example.com'],
+      to: ['info@procomputer.sk'],
       subject: `Nová otázka o doménu ${env.SITE_HOSTNAME || 'procomputer.sk'}`,
       text: `Mená: ${name}\nEmail: ${email}\nTel: ${phone}\nPonuka: ${budget}\nSpráva:\n${message}`,
       html: `<p><strong>Mená:</strong> ${name}</p><p><strong>Email:</strong> ${email}</p><p><strong>Tel.:</strong> ${phone}</p><p><strong>Ponuka:</strong> ${budget}</p><p><strong>Správa:</strong><br/>${message.replace(/\n/g, '<br/>')}</p>`,
