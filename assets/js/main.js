@@ -128,14 +128,30 @@ form.addEventListener('submit', async e => {
   btn.textContent = t.sending;
   btn.disabled = true;
 
-  // ── Nahraďte skutočným handlerom (Formspree, EmailJS…) ──
-  await new Promise(r => setTimeout(r, 1200));
-  // ─────────────────────────────────────────────────────────
+  try {
+    const resp = await fetch('/api/send-email', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ name, email, phone: form.phone.value.trim(), budget: form.budget.value, message }),
+    });
 
-  status.className = 'status success';
-  status.textContent = t.success_msg;
-  form.reset();
-  lineNums.innerHTML = '1<br/>2<br/>3<br/>4<br/>5';
-  btn.textContent = t.form_submit;
-  btn.disabled = false;
+    if (!resp.ok) {
+      const err = await resp.json().catch(() => ({}));
+      throw new Error(err.error || 'Email sending failed');
+    }
+
+    status.className = 'status success';
+    status.textContent = t.success_msg;
+    form.reset();
+    lineNums.innerHTML = '1<br/>2<br/>3<br/>4<br/>5';
+  } catch (error) {
+    status.className = 'status error';
+    status.textContent = t.err_send || 'Chyba pri odosielaní správy. Skúste to neskôr.';
+    console.error('send-email error', error);
+  } finally {
+    btn.textContent = t.form_submit;
+    btn.disabled = false;
+  }
 });
